@@ -1,23 +1,175 @@
-"""
+Andar do Hotel
 
-Introdução à programação - Desafio 2 - Code Park 3
+Precisamos imprimir um número para cada andar de um hotel de 20 andares. Porém, o dono do hotel é supersticioso e optou por não ter um 13ro andar.
 
-Precisamos imprimir um número para cada andar de um hotel de 20 andares. Porém, o dono do hotel é supersticioso e optou por não ter um 13º andar.
+Escreva um código que imprima todos os números exceto o número 13. Escreva mais dois códigos que resolvam o mesmo problema, mas dessa vez usando os outros dois tipos de laços de repetição aprendidos.
 
- - Escreva um código que imprima todos os números exceto o número 13.
- - Escreva mais dois códigos que resolvam o mesmo problema, mas dessa vez usando os outros dois tipos de laços de repetição aprendidos.
- - Como desafio, imprima eles em ordem decrescente (20, 19, 18...)
+Como desafio, imprima eles em ordem decrescente (20, 19, 18...)
 
-"""
+Obs: Para imprimir 20 andares sem o 13°, o contador precisa começar em 21, dessa forma o 21° será o andar correspondente ao 20°.
+1.0 Resolução com FOR
 
-# Como desafio, imprima eles em ordem decrescente (20, 19, 18...)
+Nesta resolução usei IF para que, enquanto o andar for diferente de 13 o laço imprima o andar. Somente não irá imprimir quanto o andar for igual a 13, que é o andar que o cliente quer que não exista.
 
-predioAndares = 21
+for andar in range(21, 0, -1):
+  if (andar != 13):
+    print("Este é o " +  str(andar) + "° andar")
+     
 
-print("Sou supersticioso e aqui não tem 13º andar!")
-print() # adiciona uma linha em branco
+Este é o 21° andar
+Este é o 20° andar
+Este é o 19° andar
+Este é o 18° andar
+Este é o 17° andar
+Este é o 16° andar
+Este é o 15° andar
+Este é o 14° andar
+Este é o 12° andar
+Este é o 11° andar
+Este é o 10° andar
+Este é o 9° andar
+Este é o 8° andar
+Este é o 7° andar
+Este é o 6° andar
+Este é o 5° andar
+Este é o 4° andar
+Este é o 3° andar
+Este é o 2° andar
+Este é o 1° andar
 
-for contador in range(predioAndares,0,-1):
-  if contador == 13:
+1.1 Resolução com FOR mostrando o andar excluído
+
+Nesta resolução usei IF para que, enquanto o andar for diferente de 13 o laço imprima o andar. Quando o andar for igual a 13 eu mostro para o cliente que ele foi excluído.
+
+for andar in range(21, 0, -1):
+  if (andar != 13):
+    print("Este é o " +  str(andar) + "° andar")
+  else:
+    print("O " +  str(andar) + "° andar foi excluído")
+    andar = andar - 1
+     
+
+Este é o 21° andar
+Este é o 20° andar
+Este é o 19° andar
+Este é o 18° andar
+Este é o 17° andar
+Este é o 16° andar
+Este é o 15° andar
+Este é o 14° andar
+O 13° andar foi excluído
+Este é o 12° andar
+Este é o 11° andar
+Este é o 10° andar
+Este é o 9° andar
+Este é o 8° andar
+Este é o 7° andar
+Este é o 6° andar
+Este é o 5° andar
+Este é o 4° andar
+Este é o 3° andar
+Este é o 2° andar
+Este é o 1° andar
+
+2.0 Resolução com While
+
+Também, nesta resolução, assim como na resolução 1.0, utilizei o IF para que o andar seja mostrado apenas quando o andar for diferente de 13.
+
+andar = 21
+while (andar > 0):
+  if (andar != 13):
+    print("Este é o " +  str(andar) + "° andar")
+  andar = andar - 1
+    
+     
+
+Este é o 21° andar
+Este é o 20° andar
+Este é o 19° andar
+Este é o 18° andar
+Este é o 17° andar
+Este é o 16° andar
+Este é o 15° andar
+Este é o 14° andar
+Este é o 12° andar
+Este é o 11° andar
+Este é o 10° andar
+Este é o 9° andar
+Este é o 8° andar
+Este é o 7° andar
+Este é o 6° andar
+Este é o 5° andar
+Este é o 4° andar
+Este é o 3° andar
+Este é o 2° andar
+Este é o 1° andar
+
+2.1 Resolução com WHILE mostrando o andar excluído
+
+Nesta resolução usei IF para que, enquanto o andar for diferente de 13, o laço imprima o andar. Quando o andar for igual a 13, assim como na resolução 1.1, eu mostro para o cliente que o andar foi excluído.
+
+andar = 21
+while (andar > 0):
+  if (andar != 13):
+    print("Este é o " +  str(andar) + "° andar")
+    andar = andar - 1
+  else:
+    print("O " +  str(andar) + "° andar foi excluído")
+    andar = andar - 1
+    
+     
+
+Este é o 21° andar
+Este é o 20° andar
+Este é o 19° andar
+Este é o 18° andar
+Este é o 17° andar
+Este é o 16° andar
+Este é o 15° andar
+Este é o 14° andar
+O 13° andar foi excluído
+Este é o 12° andar
+Este é o 11° andar
+Este é o 10° andar
+Este é o 9° andar
+Este é o 8° andar
+Este é o 7° andar
+Este é o 6° andar
+Este é o 5° andar
+Este é o 4° andar
+Este é o 3° andar
+Este é o 2° andar
+Este é o 1° andar
+
+Resolução com FOR utilizando CONTINUE e BREAK
+
+Nesta resolução é utilizado o CONTINUE para que, quando o andar for igual a 13, ele não seja impresso e continue a executar o laço.
+
+for andar in range(21, 0, -1):
+  if (andar == 13):
     continue
-  print(f"{contador}º andar") # Usei uma f-string (f"{contador}º andar") para remover o espaço que ficava depois do número, por exemplo, "14 º andar"
+  if( andar == 0):
+    break
+  print("Este é o " +  str(andar) + "° andar")
+     
+
+Este é o 21° andar
+Este é o 20° andar
+Este é o 19° andar
+Este é o 18° andar
+Este é o 17° andar
+Este é o 16° andar
+Este é o 15° andar
+Este é o 14° andar
+Este é o 12° andar
+Este é o 11° andar
+Este é o 10° andar
+Este é o 9° andar
+Este é o 8° andar
+Este é o 7° andar
+Este é o 6° andar
+Este é o 5° andar
+Este é o 4° andar
+Este é o 3° andar
+Este é o 2° andar
+Este é o 1° andar
