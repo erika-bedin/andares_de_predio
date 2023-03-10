@@ -1,0 +1,23 @@
+"""
+
+Introdução à programação - Desafio 2 - Code Park 3
+
+Precisamos imprimir um número para cada andar de um hotel de 20 andares. Porém, o dono do hotel é supersticioso e optou por não ter um 13º andar.
+
+ - Escreva um código que imprima todos os números exceto o número 13.
+ - Escreva mais dois códigos que resolvam o mesmo problema, mas dessa vez usando os outros dois tipos de laços de repetição aprendidos.
+ - Como desafio, imprima eles em ordem decrescente (20, 19, 18...)
+
+"""
+
+# Como desafio, imprima eles em ordem decrescente (20, 19, 18...)
+
+predioAndares = 21
+
+print("Sou supersticioso e aqui não tem 13º andar!")
+print() # adiciona uma linha em branco
+
+for contador in range(predioAndares,0,-1):
+  if contador == 13:
+    continue
+  print(f"{contador}º andar") # Usei uma f-string (f"{contador}º andar") para remover o espaço que ficava depois do número, por exemplo, "14 º andar"
